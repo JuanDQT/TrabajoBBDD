@@ -1,6 +1,9 @@
 package demo.service;
 
+import demo.model.Category;
+import demo.model.Developer;
 import demo.model.Employee;
+import demo.repository.DeveloperRepository;
 import demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,8 @@ import java.util.Date;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private DeveloperRepository developerRepository;
 
     public void testEmployes(){
         Calendar calendar = Calendar.getInstance();
@@ -52,6 +57,34 @@ public class EmployeeService {
 
         System.out.println("***Resultado: " + mendez);
         System.out.println("***Resultado: " + jimenez);
+    }
+
+    public void testDevelopers(){
+        Developer junior = new Developer();
+        junior.setName("Juan");
+        junior.setSurname("Mendez");
+        junior.setSalary(1000.);
+        junior.setDtIni(new Date());
+        junior.setCategory(Category.JUNIOR);
+        developerRepository.save(junior);
+
+
+        Developer senior = new Developer();
+        senior.setName("Marc");
+        senior.setSurname("Sanahuja");
+        senior.setSalary(1500.);
+        senior.setDtIni(new Date());
+        senior.setCategory(Category.SENIOR);
+        developerRepository.save(senior);
+
+        Developer architect = new Developer();
+        architect.setName("Juan");
+        architect.setSurname("Quispe");
+        architect.setSalary(3000.);
+        architect.setDtIni(new Date());
+        architect.setCategory(Category.ARCHITECT);
+        developerRepository.save(architect);
+
     }
 
 }
