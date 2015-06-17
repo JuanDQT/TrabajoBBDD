@@ -11,7 +11,8 @@ public class ProyectManagmentApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ProyectManagmentApplication.class, args);
         EmployeeService employeeService = context.getBean(EmployeeService.class);
-        employeeService.testEmployes();
-        employeeService.testDevelopers();
+        //employeeService.testEmployes();
+        //employeeService.testDevelopers();
+        employeeService.testManager();
     }
 }

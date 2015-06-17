@@ -3,8 +3,10 @@ package demo.service;
 import demo.model.Category;
 import demo.model.Developer;
 import demo.model.Employee;
+import demo.model.Manager;
 import demo.repository.DeveloperRepository;
 import demo.repository.EmployeeRepository;
+import demo.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,8 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
     @Autowired
     private DeveloperRepository developerRepository;
+    @Autowired
+    private ManagerRepository managerRepository;
 
     public void testEmployes(){
         Calendar calendar = Calendar.getInstance();
@@ -84,7 +88,15 @@ public class EmployeeService {
         architect.setDtIni(new Date());
         architect.setCategory(Category.ARCHITECT);
         developerRepository.save(architect);
+    }
 
+    public void testManager(){
+        Manager manager = new Manager();
+        manager.setName("M_Marc");
+        manager.setSurname("M_Sanahuja");
+        manager.setSalary(1500.);
+        manager.setDtIni(new Date());
+        managerRepository.save(manager);
     }
 
 }

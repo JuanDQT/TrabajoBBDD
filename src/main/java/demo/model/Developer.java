@@ -11,7 +11,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 @PrimaryKeyJoinColumn(name="id")//Junta las tablas por la primary key, para relizar el join
 public class Developer extends Employee {
-    //@Column
     @Enumerated(EnumType.STRING)
     private Category category;
 
