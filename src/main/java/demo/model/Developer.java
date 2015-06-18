@@ -14,6 +14,9 @@ public class Developer extends Employee {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    //@ManytoMany(mappedBy = 'developers')
+    //private Set<Project> projects = new HashSet<>();
+
     public Developer(){}
 
     public Category getCategory() {
