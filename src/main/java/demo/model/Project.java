@@ -17,14 +17,22 @@ public class Project  {
     String description;
 
     @NotNull
-    @Column(name = "start date")
+    @Column(name = "start_date")
     private Date startDate;
 
 
-    @Column(name = "end date")
+    @Column(name = "end_date")
     private Date endtDate;
 
-    @ManyToOne
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    @ManyToOne//muchos proyectos para un manager
     private Manager manager;//este nombre manager ha de ser igual al de la clase Manager(para hacer relacion 1:N)
 
     public String getDescription() {
