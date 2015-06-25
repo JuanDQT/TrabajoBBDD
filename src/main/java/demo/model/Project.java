@@ -11,6 +11,17 @@ import java.util.Set;
  */
 @Entity
 public class Project  {
+    /*PROYECTOS PARA UN DEVELOPERS*/
+    @ManyToMany
+    private Set<Developer> developers = new HashSet<>();
+
+    /*PROYECTOS TIENEN UN MANAGER*/
+    @ManyToOne
+    private Manager manager;
+
+    @ManyToMany//(mappedBy = "projects")
+    private Set<Specialty> specialities =  new HashSet<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)///OBTENER PRIMARY KEY
     private Long id;
@@ -25,11 +36,6 @@ public class Project  {
 
     @Column(name = "end_date")
     private Date endtDate;
-
-    /****RELACION 1,N ETC****/
-    private Set<Developer> developers = new HashSet<>();
-    @ManyToOne//muchos proyectos para un manager
-    private Manager manager;//este nombre manager ha de ser igual al de la clase Manager(para hacer relacion 1:N)
 
     public Manager getManager() {
         return manager;
@@ -74,4 +80,29 @@ public class Project  {
                 ", endtDate=" + endtDate +
                 '}';
     }
+
+    public Set<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(Set<Developer> developers) {
+        this.developers = developers;
+    }
+
+    public Set<Specialty> getSpecialities() {
+        return specialities;
+    }
+
+    public void setSpecialities(Set<Specialty> specialities) {
+        this.specialities = specialities;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

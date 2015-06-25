@@ -17,12 +17,11 @@ public class Manager extends Employee {
     @Column
     private Double bonusSucces;
 
+    /*MANAGER TIENE PROYECTOS*/
     @OneToMany(mappedBy = "manager")//el nombre "manager" ha de ser igual al de la clase Project
-    //oneManager(esta clase)ToManyProjects
     private Set<Project> projects = new HashSet<>();//no duplicados
 
     public Manager(){}
-
 
     public Double getBonusSucces() {
         return bonusSucces;
