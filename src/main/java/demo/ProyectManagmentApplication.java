@@ -1,5 +1,6 @@
 package demo;
 
+import demo.service.DeveloperService;
 import demo.service.EmployeeService;
 import demo.service.ManagerService;
 import demo.service.ProjectService;
@@ -12,12 +13,15 @@ public class ProyectManagmentApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(ProyectManagmentApplication.class, args);
+
         EmployeeService employeeService = context.getBean(EmployeeService.class);
-        //employeeService.testEmployes();
-        //employeeService.testDevelopers();
         ManagerService managerService = context.getBean(ManagerService.class);
-        managerService.testManager();
         ProjectService projectService = context.getBean(ProjectService.class);
+        DeveloperService developerService = context.getBean(DeveloperService.class);
+
+        employeeService.testEmployes();
+        managerService.testManager();
         projectService.testProject();
+        developerService.testDeveloper();
     }
 }

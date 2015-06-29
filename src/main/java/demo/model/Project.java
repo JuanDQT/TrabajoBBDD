@@ -19,11 +19,11 @@ public class Project  {
     @ManyToOne
     private Manager manager;
 
-    @ManyToMany//(mappedBy = "projects")
+    @ManyToMany
     private Set<Specialty> specialities =  new HashSet<>();
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)///OBTENER PRIMARY KEY
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
