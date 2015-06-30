@@ -27,7 +27,7 @@ public class DeveloperController {
     @Autowired//conecta con el repositorio
     private DeveloperRepository developerRepository;
 
-    @RequestMapping(method = POST)//consulta
+    @RequestMapping(method = POST)//consultaa
     @ResponseStatus(HttpStatus.CREATED)//crear
     public Developer save(@RequestBody Developer developer) {
         return developerRepository.save(developer);
