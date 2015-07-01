@@ -96,7 +96,7 @@ public class ProjectController {
         projectRepository.save(project);
         return project;
     }
-    /*CONSEGUIR UN MANAGER A PARTIR DE UNA ID DE UN PROYECTO*/
+    /*CONSEGUIR UN MANAGER A PARTIR DE UNA ID DE UN PROYECTOO*/
     @RequestMapping(value = "/{idProject}/manager", method = GET)
     public Manager getManager(@PathVariable Long idProject) {
 
