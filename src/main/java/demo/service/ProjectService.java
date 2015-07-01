@@ -36,6 +36,11 @@ public class ProjectService {
 
         projectRepository.save(project);
 
+        Project vacio = new Project();
+        vacio.setDescription("Projecto vacio");
+        vacio.setStartDate(new Date());
+        projectRepository.save(vacio);
+
         Developer developer1 = new Developer();
         developer1.setName("Mario");
         developer1.setSurname("Romero");

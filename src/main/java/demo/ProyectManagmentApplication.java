@@ -1,6 +1,8 @@
 package demo;
 
 import demo.service.EmployeeService;
+import demo.service.ManagerService;
+import demo.service.ProjectService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,10 +18,11 @@ public class ProyectManagmentApplication {
         employeeService.testDevelopers();
 
         //employeeService.testEmployes();
-        /*employeeService.testDevelopers();
+        //employeeService.testDevelopers();
         ManagerService managerService = context.getBean(ManagerService.class);
         managerService.testManager();
+
         ProjectService projectService = context.getBean(ProjectService.class);
-        projectService.testProject();*/
+        projectService.testProject();
     }
 }

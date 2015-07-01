@@ -71,5 +71,6 @@ public class DeveloperController {
 
         newDeveloper = developerRepository.save(newDeveloper);
         return newDeveloper;
+
     }
 }

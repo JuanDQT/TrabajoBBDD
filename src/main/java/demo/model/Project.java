@@ -1,5 +1,7 @@
 package demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.Set;
 @Entity
 public class Project  {
     /*PROYECTOS PARA UN DEVELOPERS*/
+    @JsonIgnore
     @ManyToMany
     private Set<Developer> developers = new HashSet<>();
 
@@ -19,6 +22,7 @@ public class Project  {
     @ManyToOne
     private Manager manager;
 
+    @JsonIgnore
     @ManyToMany//(mappedBy = "projects")
     private Set<Specialty> specialities =  new HashSet<>();
 
