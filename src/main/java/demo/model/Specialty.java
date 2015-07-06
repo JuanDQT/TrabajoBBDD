@@ -25,6 +25,9 @@ public class Specialty {
     @ManyToMany
     private Set<Developer> developers = new HashSet<>();
 
+    @OneToMany(mappedBy = "specialty")
+    private Set<Review> reviews = new HashSet<>();
+
     /*ESPACIALIDADES PARA PROYECTOS*/
     @ManyToMany
     private Set<Project> projects = new HashSet<>();

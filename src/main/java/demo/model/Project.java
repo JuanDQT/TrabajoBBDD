@@ -23,8 +23,11 @@ public class Project  {
     private Manager manager;
 
     @JsonIgnore
-    @ManyToMany//(mappedBy = "projects")
+    @ManyToMany
     private Set<Specialty> specialities =  new HashSet<>();
+
+    @OneToMany(mappedBy = "project")
+    private Set<Review> reviews = new HashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)///OBTENER PRIMARY KEY
@@ -34,11 +37,8 @@ public class Project  {
     String description;
 
     @NotNull
-    @Column(name = "start_date")
     private Date startDate;
 
-
-    @Column(name = "end_date")
     private Date endtDate;
 
     public Manager getManager() {

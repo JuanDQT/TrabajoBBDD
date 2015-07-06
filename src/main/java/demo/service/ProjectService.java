@@ -5,6 +5,7 @@ import demo.model.Developer;
 import demo.model.Project;
 import demo.repository.DeveloperRepository;
 import demo.repository.ProjectRepository;
+import demo.repository.SpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class ProjectService {
 
     @Autowired
     private DeveloperRepository developerRepository;
+
+    @Autowired
+    private SpecialtyRepository specialtyRepository;
 
     public void testProject(){
         Calendar calendar = Calendar.getInstance();
