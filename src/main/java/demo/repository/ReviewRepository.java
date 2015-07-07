@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface ReviewRepository extends PagingAndSortingRepository<Review, Long> {
 
-        public Review findByProjectIdAndDeveloperIdAndSpecialtyId( Long idProject, Long idDeveloper, Long idSpecialty);
+        Review findByProjectIdAndDeveloperIdAndSpecialtyId( Long idProject, Long idDeveloper, Long idSpecialty);
 
 }
 
