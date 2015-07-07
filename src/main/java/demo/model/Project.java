@@ -15,7 +15,7 @@ import java.util.Set;
 public class Project  {
     /*PROYECTOS PARA UN DEVELOPERS*/
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(mappedBy = "projects")
     private Set<Developer> developers = new HashSet<>();
 
     /*PROYECTOS TIENEN UN MANAGER*/
@@ -23,8 +23,8 @@ public class Project  {
     private Manager manager;
 
     @JsonIgnore
-    @ManyToMany
-    private Set<Specialty> specialities =  new HashSet<>();
+    @ManyToMany(mappedBy = "projects")
+    private Set<Specialty> specialties =  new HashSet<>();
 
     @OneToMany(mappedBy = "project")
     private Set<Review> reviews = new HashSet<>();
@@ -93,12 +93,12 @@ public class Project  {
         this.developers = developers;
     }
 
-    public Set<Specialty> getSpecialities() {
-        return specialities;
+    public Set<Specialty> getSpecialties() {
+        return specialties;
     }
 
-    public void setSpecialities(Set<Specialty> specialities) {
-        this.specialities = specialities;
+    public void setSpecialties(Set<Specialty> specialties) {
+        this.specialties = specialties;
     }
 
     public Long getId() {

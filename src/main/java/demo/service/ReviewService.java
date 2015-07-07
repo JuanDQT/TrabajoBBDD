@@ -41,22 +41,23 @@ public class ReviewService {
         managerRepository.save(m);
 
         Specialty s = new Specialty();
-        s.setName("Malabarista");
+        s.setName("Java");
         specialtyRepository.save(s);
 
         Project p = new Project();
-        p.setDescription("Proyecto General");
+        p.setDescription("Android Lolipop");
         p.setManager(m);
         p.setStartDate(new Date());
-        p.getSpecialities().add(s);
-        p.setSpecialities();
+        p.getSpecialties().add(s);
+        //p.setSpecialties();
         projectRepository.save(p);
 
         Review r = new Review();
-        r.setComment("muy malo");
+        r.setComment("buenisimo");
         r.setDeveloper(d);
         r.setProject(p);
         r.setSpecialty(s);
+        r.setScore(12L);
         reviewRepository.save(r);
     }
 }

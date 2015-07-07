@@ -53,7 +53,7 @@ public class ReviewController {
         if(!developer.getProjects().contains(project))
             throw new ReviewDeveloperProjectException(idProject,idDeveloper);
 
-        if(!project.getSpecialities().contains(specialty))
+        if(!project.getSpecialties().contains(specialty))
             throw new ReviewProjectSpecialtyException(idProject,idSpecialty);
 
         if(!developer.getSpecialties().contains(specialty))

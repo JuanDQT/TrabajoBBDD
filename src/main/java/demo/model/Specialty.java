@@ -22,14 +22,14 @@ public class Specialty {
 
     /*ESPECIALIDADES PARA DEVELOPERS*/
     @JsonIgnore
-    @ManyToMany(mappedBy = "specialties")
+    @ManyToMany
     private Set<Developer> developers = new HashSet<>();
 
     @OneToMany(mappedBy = "specialty")
     private Set<Review> reviews = new HashSet<>();
 
     /*ESPACIALIDADES PARA PROYECTOS*/
-    @ManyToMany(mappedBy ="specialties")
+    @ManyToMany
     private Set<Project> projects = new HashSet<>();
 
     public Specialty() {
