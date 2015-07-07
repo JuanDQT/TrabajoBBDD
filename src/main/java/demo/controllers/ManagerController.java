@@ -32,7 +32,7 @@ public class ManagerController {
 
     @RequestMapping(method= RequestMethod.GET)
     public List<Manager> findAll() {
-        List<Manager> managers = new ArrayList<Manager>();
+        List<Manager> managers = new ArrayList<>();
         Iterator<Manager> iterator = managerRepository.findAll().iterator();
 
         while (iterator.hasNext()) {

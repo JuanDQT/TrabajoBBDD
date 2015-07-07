@@ -1,8 +1,10 @@
 package demo.controllers;
 
 import demo.exception.ProjectException;
+import demo.model.Developer;
 import demo.model.Manager;
 import demo.model.Project;
+import demo.repository.DeveloperRepository;
 import demo.repository.ManagerRepository;
 import demo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -29,6 +32,8 @@ public class ProjectController {
     @Autowired
     private ManagerRepository managerRepository;
 
+    @Autowired
+    private DeveloperRepository developerRepository;
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
@@ -108,4 +113,36 @@ public class ProjectController {
         return project.getManager();
     }
 
+    //
+        /*ASIGNAR UN DEVELOPER A UN PROYECT*/
+    @RequestMapping(value = "/{idProject}/developers/{idDeveloper}", method = POST)
+    public Project addDeveloper(@PathVariable Long idProject, @PathVariable Long idDeveloper) {
+        Project project = projectRepository.findOne(idProject);
+        if (project == null)
+            throw new ProjectException(idProject);///
+
+        Developer developer = developerRepository.findOne(idDeveloper);
+        if (developer == null)
+            throw new ProjectException(idProject);
+        //project.setDevelopers().add;
+        //NO FUNCIONA
+        project.getDevelopers().add(developer);
+        projectRepository.save(project);
+        return project;
+    }
+
+    /*CONSEGUIR UN O MAS DEVELOPER A PARTIR DE UNA ID DE UN PROYECTOO*/
+    @RequestMapping(value = "/{idProject}/developers", method = GET)
+    public Set<Developer> getDevelopers(@PathVariable Long idProject) {
+        //Developer developer = developerRepository.findOne();//CONSEGUIRIA LOS DEVELOPERS
+
+        Project project = projectRepository.findOne(idProject);
+
+        if (project == null)
+            throw new ProjectException(idProject);//
+
+        return project.getDevelopers();
+        /*COMO CONSEGUIR LA LISTA DE LOS DEVELOPERS ASOCIADOS AL PROYECTO?*/
+        //return null;//project.getDevelopers().addAll();
+    }
 }
