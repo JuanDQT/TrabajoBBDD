@@ -47,7 +47,7 @@ public class ProjectService {
 
         Developer developer1 = new Developer();
         developer1.setName("Mario");
-        developer1.setSurname("Romero");
+        developer1.setSurname("trolazo");
         developer1.setSalary(3400.0);
         developer1.setCategory(Category.JUNIOR);
         developer1.setDtIni(new Date());

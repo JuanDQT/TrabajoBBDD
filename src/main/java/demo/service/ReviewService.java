@@ -5,6 +5,7 @@ import demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Date;
  */
 
 @Service
+@Transactional//sirve para que se inicie una transaccion
 public class ReviewService {
 
     @Autowired
@@ -32,8 +34,9 @@ public class ReviewService {
     public void testReview(){
         Developer d = new Developer();
         d.setName("Alberto");
-        d.setSurname("Projecto");
+        d.setSurname("Garcia");
         d.setSalary(999.0);
+        d.setDtIni(new Date ());
         developerRepository.save(d);
 
         Manager m = new Manager();
@@ -44,20 +47,24 @@ public class ReviewService {
         s.setName("Java");
         specialtyRepository.save(s);
 
+        d.getSpecialties().add(s);
+        developerRepository.save(d);
+
         Project p = new Project();
-        p.setDescription("Android Lolipop");
+        p.setDescription("Android");
         p.setManager(m);
         p.setStartDate(new Date());
+
         p.getSpecialties().add(s);
-        //p.setSpecialties();
+        p.getDevelopers().add(d);
         projectRepository.save(p);
 
         Review r = new Review();
-        r.setComment("buenisimo");
+        r.setScore(9L);
+        r.setComment("Proyecto OK");
         r.setDeveloper(d);
         r.setProject(p);
         r.setSpecialty(s);
-        r.setScore(12L);
         reviewRepository.save(r);
     }
 }

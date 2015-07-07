@@ -16,11 +16,11 @@ public class Developer extends Employee {
     private Category category;
 
     /*DEVELOPERS CON PROYECTO*/
-    @ManyToMany
+    @ManyToMany(mappedBy = "developers")
     private Set<Project> projects = new HashSet<>();
 
     /*DEVELOPERS CON ESPECIALIDADES*/
-    @ManyToMany(mappedBy = "developers")
+    @ManyToMany
     private Set<Specialty> specialties = new HashSet<>();
     @JsonIgnore
     @OneToMany(mappedBy = "developer")

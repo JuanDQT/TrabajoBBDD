@@ -15,7 +15,7 @@ import java.util.Set;
 public class Project  {
     /*PROYECTOS PARA UN DEVELOPERS*/
     @JsonIgnore
-    @ManyToMany(mappedBy = "projects")
+    @ManyToMany
     private Set<Developer> developers = new HashSet<>();
 
     /*PROYECTOS TIENEN UN MANAGER*/
@@ -23,7 +23,7 @@ public class Project  {
     private Manager manager;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "projects")
+    @ManyToMany
     private Set<Specialty> specialties =  new HashSet<>();
 
     @OneToMany(mappedBy = "project")

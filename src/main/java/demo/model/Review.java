@@ -24,6 +24,19 @@ public class Review {
     @ManyToOne//fet
     private Project project;
 
+    public Review(String comment, Long score, Date dtIni, Date dtEnd, Developer developer, Project project, Specialty specialty) {
+        this.comment = comment;
+        this.score = score;
+        this.dtIni = dtIni;
+        this.dtEnd = dtEnd;
+        this.developer = developer;
+        this.project = project;
+        this.specialty = specialty;
+    }
+
+    public Review() {
+    }
+
     @JsonIgnore
     @ManyToOne
     private Specialty specialty;
